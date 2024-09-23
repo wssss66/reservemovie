@@ -55,6 +55,7 @@ public class Managemovie {
             //managemovie // do something
             //managemovie.setseatnum(reservation.getseatnum());
             managemovie.reserveYn=true;
+            managemovie.userid=reservation.getuserid();
             repository().save(managemovie);
 
          });
@@ -94,6 +95,7 @@ public class Managemovie {
         //implement business logic here:
 
         managemovie.reserveYn=false;
+        managemovie.userid=null;
         repository().save(managemovie);
 
         /** Example 1:  new item 
