@@ -28,6 +28,42 @@ public class Managemovie {
 
     private Boolean reserveYn;
 
+    public Long Getid(){
+        return this.id;
+    }
+
+    public String Getuserid(){
+        return this.userid;
+    }
+
+    public String Getmovieid(){
+        return this.movieid;
+    }
+
+    public String Getseatnum(){
+        return this.seatnum;
+    }
+
+    public Long Setid(Long id){
+        return this.id;
+    }
+
+    public String Setuserid(String userid){
+        return this.userid;
+    }
+
+    public String Setmovieid(String movieid){
+        return this.movieid;
+    }
+
+    public String Setseatnum(String seatnum){
+        return this.seatnum;
+    }
+
+    public Boolean SetreserveYn(Boolean reserveYn){
+        return this.seatnum;
+    }
+
     @PostPersist
     public void onPostPersist() {
         Decreasedseat decreasedseat = new Decreasedseat(this);
@@ -50,12 +86,12 @@ public class Managemovie {
     //<<< Clean Arch / Port Method
     public static void reservemovie(Reservedmovie reservedmovie) {
 
-        repository().findById(reservedmovie.getmovieid()).ifPresent(managemovie->{
+        repository().findById(reservedmovie.Getmovieid()).ifPresent(managemovie->{
             
             //managemovie // do something
             //managemovie.setseatnum(reservation.getseatnum());
-            managemovie.reserveYn=true;
-            managemovie.userid=reservation.getuserid();
+            managemovie.SetreserveYn(true);
+            managemovie.Setuserid(reservation.Getuserid());
             repository().save(managemovie);
 
          });
@@ -94,10 +130,12 @@ public class Managemovie {
     public static void cancelmovie(Canceledreservaion canceledreservaion) {
         //implement business logic here:
 
-        managemovie.reserveYn=false;
-        managemovie.userid=null;
+        repository().findById(canceledreservaion.get???()).ifPresent(managemovie->{
+        managemovie.SetreserveYn(false);
+        managemovie.Setuserid(null);
         repository().save(managemovie);
-
+        });
+        
         /** Example 1:  new item 
         Managemovie managemovie = new Managemovie();
         repository().save(managemovie);
