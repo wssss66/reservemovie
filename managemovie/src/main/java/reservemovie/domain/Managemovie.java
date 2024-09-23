@@ -50,7 +50,7 @@ public class Managemovie {
     //<<< Clean Arch / Port Method
     public static void reservemovie(Reservedmovie reservedmovie) {
 
-        repository().findById(reservedmovie.getseatnum()).ifPresent(managemovie->{
+        repository().findById(reservedmovie.getmovieid()).ifPresent(managemovie->{
             
             //managemovie // do something
             //managemovie.setseatnum(reservation.getseatnum());
