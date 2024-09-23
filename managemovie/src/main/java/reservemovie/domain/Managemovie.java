@@ -55,7 +55,7 @@ public class Managemovie {
 
          repository().findById(Long.valueOf(reservedmovie.getId())).ifPresent(managemovie->{
         
-            ///managemovie.setSeatnum(reservedmovie.getSeatnum());
+            managemovie.setSeatnum(reservedmovie.getSeatnum());
             managemovie.setReserveYn(true);
             managemovie.setUserid(reservedmovie.getUserid());
             repository().save(managemovie);
@@ -97,11 +97,12 @@ public class Managemovie {
     public static void cancelmovie(Canceledreservaion canceledreservaion) {
         //implement business logic here:
 
-        // repository().findById(canceledreservaion.get???()).ifPresent(managemovie->{
-        // managemovie.SetreserveYn(false);
-        // managemovie.Setuserid(null);
-        // repository().save(managemovie);
-        // });
+        repository().findById(canceledreservaion.getId()).ifPresent(managemovie->{
+        managemovie.setReserveYn(false);
+        managemovie.setUserid(null);
+        managemovie.setSeatnum(null);
+        repository().save(managemovie);
+        });
         
         /** Example 1:  new item 
         Managemovie managemovie = new Managemovie();
