@@ -49,6 +49,16 @@ public class Managemovie {
 
     //<<< Clean Arch / Port Method
     public static void reservemovie(Reservedmovie reservedmovie) {
+
+        repository().findById(reservedmovie.getseatnum()).ifPresent(managemovie->{
+            
+            //managemovie // do something
+            //managemovie.setseatnum(reservation.getseatnum());
+            managemovie.reserveYn=true;
+            repository().save(managemovie);
+
+         });
+
         //implement business logic here:
 
         /** Example 1:  new item 
