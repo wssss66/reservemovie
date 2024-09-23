@@ -17,20 +17,4 @@ public class Reservedmovie extends AbstractEvent {
     private String username;
     private String moviename;
     private Date movietime;
-
-    public Long Getid(){
-        return this.id;
-    }
-
-    public String Getuserid(){
-        return this.userid;
-    }
-
-    public String Getmovieid(){
-        return this.movieid;
-    }
-
-    public String Getseatnum(){
-        return this.seatnum;
-    }
 }

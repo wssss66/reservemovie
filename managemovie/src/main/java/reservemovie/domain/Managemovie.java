@@ -86,12 +86,12 @@ public class Managemovie {
     //<<< Clean Arch / Port Method
     public static void reservemovie(Reservedmovie reservedmovie) {
 
-        repository().findById(Long.valueOf(reservedmovie.Getid())).ifPresent(managemovie->{
+        repository().findById(Long.valueOf(reservedmovie.getId())).ifPresent(managemovie->{
             
             //managemovie // do something
             //managemovie.setseatnum(reservation.getseatnum());
             managemovie.SetreserveYn(true);
-            managemovie.Setuserid(reservedmovie.Getuserid());
+            managemovie.Setuserid(reservedmovie.getUserid());
             repository().save(managemovie);
 
          });
