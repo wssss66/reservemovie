@@ -93,6 +93,9 @@ public class Managemovie {
     public static void cancelmovie(Canceledreservaion canceledreservaion) {
         //implement business logic here:
 
+        managemovie.reserveYn=false;
+        repository().save(managemovie);
+
         /** Example 1:  new item 
         Managemovie managemovie = new Managemovie();
         repository().save(managemovie);
