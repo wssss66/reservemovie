@@ -28,41 +28,8 @@ public class Managemovie {
 
     private Boolean reserveYn;
 
-    public Long Getid(){
-        return this.id;
-    }
+    
 
-    public String Getuserid(){
-        return this.userid;
-    }
-
-    public String Getmovieid(){
-        return this.movieid;
-    }
-
-    public String Getseatnum(){
-        return this.seatnum;
-    }
-
-    public Long Setid(Long id){
-        return this.id;
-    }
-
-    public void Setuserid(String userid){
-        this.userid=userid;
-    }
-
-    public void Setmovieid(String movieid){
-        this.movieid=movieid;
-    }
-
-    public void Setseatnum(String seatnum){
-        this.seatnum=seatnum;
-    }
-
-    public void SetreserveYn(Boolean reserveYn){
-        this.reserveYn=reserveYn;
-    }
 
     @PostPersist
     public void onPostPersist() {
@@ -86,12 +53,11 @@ public class Managemovie {
     //<<< Clean Arch / Port Method
     public static void reservemovie(Reservedmovie reservedmovie) {
 
-        repository().findById(Long.valueOf(reservedmovie.getId())).ifPresent(managemovie->{
-            
-            //managemovie // do something
-            //managemovie.setseatnum(reservation.getseatnum());
-            managemovie.SetreserveYn(true);
-            managemovie.Setuserid(reservedmovie.getUserid());
+         repository().findById(Long.valueOf(reservedmovie.getId())).ifPresent(managemovie->{
+        
+            ///managemovie.setSeatnum(reservedmovie.getSeatnum());
+            managemovie.setReserveYn(true);
+            managemovie.setUserid(reservedmovie.getUserid());
             repository().save(managemovie);
 
          });

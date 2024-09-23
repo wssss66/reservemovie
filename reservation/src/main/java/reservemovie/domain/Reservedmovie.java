@@ -28,21 +28,5 @@ public class Reservedmovie extends AbstractEvent {
         super();
     }
 
-    public Long Getid(){
-        return this.id;
-    }
-
-    public String Getuserid(){
-        return this.userid;
-    }
-
-    public String Getmovieid(){
-        return this.movieid;
-    }
-
-    public String Getseatnum(){
-        return this.seatnum;
-    }
-
 }
 //>>> DDD / Domain Event
