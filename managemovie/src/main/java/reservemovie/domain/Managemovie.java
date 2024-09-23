@@ -48,20 +48,20 @@ public class Managemovie {
         return this.id;
     }
 
-    public String Setuserid(String userid){
-        return this.userid;
+    public void Setuserid(String userid){
+        this.userid=userid;
     }
 
-    public String Setmovieid(String movieid){
-        return this.movieid;
+    public void Setmovieid(String movieid){
+        this.movieid=movieid;
     }
 
-    public String Setseatnum(String seatnum){
-        return this.seatnum;
+    public void Setseatnum(String seatnum){
+        this.seatnum=seatnum;
     }
 
-    public Boolean SetreserveYn(Boolean reserveYn){
-        return this.seatnum;
+    public void SetreserveYn(Boolean reserveYn){
+        this.reserveYn=reserveYn;
     }
 
     @PostPersist
@@ -95,6 +95,15 @@ public class Managemovie {
             repository().save(managemovie);
 
          });
+
+         repository().findById(Long.valueOf(orderPlaced.getProductId())).ifPresent(inventory->{
+            
+            inventory.setStock(inventory.getStock() - orderPlaced.getQty()); // do something
+            repository().save(inventory);
+
+
+         });
+      
 
         //implement business logic here:
 
@@ -130,11 +139,11 @@ public class Managemovie {
     public static void cancelmovie(Canceledreservaion canceledreservaion) {
         //implement business logic here:
 
-        repository().findById(canceledreservaion.get???()).ifPresent(managemovie->{
-        managemovie.SetreserveYn(false);
-        managemovie.Setuserid(null);
-        repository().save(managemovie);
-        });
+        // repository().findById(canceledreservaion.get???()).ifPresent(managemovie->{
+        // managemovie.SetreserveYn(false);
+        // managemovie.Setuserid(null);
+        // repository().save(managemovie);
+        // });
         
         /** Example 1:  new item 
         Managemovie managemovie = new Managemovie();
